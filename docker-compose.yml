@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+  client_app:
+    build: ./client
+    container_name: client-container
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    networks:
+      - network
+    restart: unless-stopped
+
+  server_app:
+    build: ./server
+    container_name: server-container
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+    networks:
+      - network
+    restart: unless-stopped
+
+  postgres:
+    image: "postgres:12"
+    container_name: postgres_container
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - "./data/postgresql:/var/lib/postgresql/data"
+    networks:
+      - network
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+networks:
+  network:
+

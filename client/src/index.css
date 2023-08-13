@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+.punten {
+font-family: 'Roboto', sans-serif;
+}
+a{
+  text-decoration: none!important;
+}
+/* body {
+  margin: 0;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} */
+
+/* code {
+
+} */
